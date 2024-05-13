@@ -29,7 +29,6 @@ function initNastar(data, callback) {
         data.listData.forEach(
             function(e) {
                 $(`#${data.containerId}`).append(`<div id="nastar-${e.tabId}"></div>`)
-                console.log("foreach" + e.tabId)
                 $(`#nastar-${e.tabId}`).css("display", "none")
                 $(`#nastar-${e.tabId}`).load(e.urlHtml)
                 $(`#${e.tabId}`).click(
