@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Example of NASTAR.JS</title>
+        <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+        <script type="text/javascript">
+            google.load("jquery", "1.3.2");
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="nasgor.js"></script>
+        <script type="text/javascript">
+
+            var listData = [
+                {
+                    tabId: "tab1",
+                    urlHtml: "layout1.html"
+                },
+                {
+                    tabId: "tab2",
+                    urlHtml: "layout2.html"
+                },
+            ]
+            
+            initNastar({
+                "containerId": "pages",
+                "listData": listData,
+            }, {
+            // onReady(tabNow), isSameClicked(tabNow), afterClicked(tabNow)
+                onReady: function(tabNow) {
+                    console.log(`onReady: tab:${tabNow.tabId}`)
+                },
+                isSameClicked: function(tabNow) {
+                    console.log(`isSameClicked: tab:${tabNow.tabId}`)
+                },
+                afterClicked: function(tabNow) {
+                    console.log(`afterClicked: tab:${tabNow.tabId}`)
+                },
+            })
+            
+         </script>
+    </head>
+    <body>
+        <button id="tab1">Click Me</button>
+        <button id="tab2">Click You</button>
+        <div id="pages"></div>
+    </body>
+</html>
